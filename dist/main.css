@@ -3,24 +3,23 @@
 }
 
 .inflationsergebnis {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   font-weight: 600;
-  height: 4rem;
-  align-items: center;
-  justify-content: start;
 }
 
 .inflationsergebnis__label {
-  flex: 1;
+  font-size: 1.25rem;
 }
 
 .inflationsergebnis__result {
-  flex: 1;
+  color: green;
 }
 
+.inflationsergebnis__result--red {
+  color: red;
+}
 
-.inflationsergebnis-grid {
-    
+.inflationsergebnis__result--blue {
+  color: rgb(0, 0, 255);
 }

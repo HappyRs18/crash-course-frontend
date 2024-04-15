@@ -28,8 +28,6 @@ async function getInflationsrechnerErgebnisse() {
     });
 
     return response.json();
-
-
 }
 
 function formatNumber(num) {
@@ -43,7 +41,6 @@ getInflationsrechnerErgebnisse().then((result) => {
 
     if (result != null) {
         if (heutigerWertElement != null) {
-            console.log("typeof(result.wertHeute)", typeof (result.wertHeute));
             if (typeof (result.wertHeute) === 'number')
                 heutigerWertElement.innerHTML = formatNumber(result.wertHeute);
         }
@@ -57,6 +54,11 @@ getInflationsrechnerErgebnisse().then((result) => {
         }
 
         if (benoetigterWertFuerAusgleichElement != null) {
+            benoetigterWertFuerAusgleichElement.classList.remove("inflationsergebnis__result--blue");
+            if (result.wertBenoetigtFuerAusgleich < 50) {
+                benoetigterWertFuerAusgleichElement.classList.add("inflationsergebnis__result--blue");
+            }
+
             benoetigterWertFuerAusgleichElement.innerHTML = formatNumber(result.wertBenoetigtFuerAusgleich);
         }
     }
